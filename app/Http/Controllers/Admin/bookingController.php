@@ -11,4 +11,9 @@ class bookingController extends Controller
     {
         return view('admin.booking.apply');
     }
+    
+    public function apply(Request $request)
+    {
+        return redirect('admin/booking/apply');
+    }
 }

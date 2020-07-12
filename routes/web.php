@@ -17,4 +17,4 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'admin'], function() {
     Route::get('booking/apply', 'Admin\bookingController@add');
-});
+    });

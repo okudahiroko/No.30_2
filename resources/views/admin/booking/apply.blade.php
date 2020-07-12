@@ -1,13 +1,57 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <title>お宿</title>
-    </head>
-    <body>
-        <h1>予約画面</h1>
-    </body>
-</html>
+{{-- layouts/admin.blade.phpを読み込む --}}
+@extends('layouts.admin')
+
+{{-- admin.blede.phpの@yield('title')に'予約画面'を埋め込む --}}
+@section('title','予約画面')
+
+{{-- admin.blede.phpの@yield('content')に以下のタグを埋め込む --}}
+@section('content')
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <h2>予約画面</h2>
+                <form action="{{ action('Admin\bookingController@add') }}" method="post" enctype="multipart/form-date">
+                    
+                    @if (count($errors) > 0)
+                        <ul>
+                            @foreach($errors->all() as $e)
+                                <li>{{ $e }}</li>
+                            @endforeach    
+                        </ul>
+                    @endif
+                    
+                    <div class="form-group row">
+                        <label class="col-md-2">チェックイン日</label>
+                        <div class="col-md-2">
+                            <input type="date"></input>    
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-2">チェックアウト日</label>
+                        <div class="col-md-2">
+                            <input type="date"></input>    
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-2">人数</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="number" value="{{ old('body') }}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-2">お名前</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="name" value="{{ old('body') }}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-2">電話番号</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="phonenumber" value="{{ old('body') }}">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+@endsection    
