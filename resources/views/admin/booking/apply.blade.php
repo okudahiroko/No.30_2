@@ -23,33 +23,35 @@
                     <div class="form-group row">
                         <label class="col-md-2">チェックイン日</label>
                         <div class="col-md-2">
-                            <input type="date"></input>    
+                            <input type="date" name="check_in_date" value="{{ old('check_in_date') }}"></input>    
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">チェックアウト日</label>
                         <div class="col-md-2">
-                            <input type="date"></input>    
+                            <input type="date" name="check_out_date" value="{{ old('check_out_date') }}"></input>    
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">人数</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="number" value="{{ old('body') }}">
+                            <input type="text" class="form-control" name="members" value="{{ old('members') }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">お名前</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="name" value="{{ old('body') }}">
+                            <input type="text" class="form-control" name="name" value="{{ old('name') }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">電話番号</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="phonenumber" value="{{ old('body') }}">
+                            <input type="text" class="form-control" name="phone_number" value="{{ old('phone_number') }}">
                         </div>
                     </div>
+                    {{ csrf_field() }}
+                    <input type="submit" class="btn btn-primary" value="予約へ進む">
                 </form>
             </div>
         </div>

@@ -15,8 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'admin'], function() {
-    Route::get('booking/apply', 'Admin\bookingController@add')->middleware('auth');
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+    Route::get('booking/apply', 'Admin\bookingController@add');
+    Route::post('booking/apply', 'Admin\bookingController@apply');
     });
 
 Auth::routes();
